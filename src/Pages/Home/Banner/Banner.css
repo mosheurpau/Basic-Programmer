@@ -1,11 +1,11 @@
 .banner-style {
-  background-image: url("https://i.ibb.co/jDg4Bm3/banner.webp");
+  background-image: url("https://i.ibb.co/LZZ3jsh/Banner1-1.png");
   background-size: cover;
   height: 600px;
-
   padding: 90px 0 50px 0;
   background-repeat: no-repeat;
   color: white;
+  margin-bottom: 100px;
 }
 @media only screen and (max-width: 600px) {
   .banner-style {

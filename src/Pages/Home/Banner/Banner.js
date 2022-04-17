@@ -5,9 +5,9 @@ import "./Banner.css";
 const Banner = () => {
   return (
     <div className="banner-style">
-      <Container>
+      <Container fluid="md">
         <Row>
-          <Col sm={6} className="my-auto">
+          <Col md={6} className="my-auto">
             <h1 className="pb-3 fw-bold">
               Free Training: How to become Frontend Developer in under 90 days?
             </h1>
@@ -26,7 +26,7 @@ const Banner = () => {
               like Facebook, Amazon, Netflix, and Google
             </h5>
           </Col>
-          <Col sm={6} className="my-auto text-center">
+          <Col md={6} className="my-auto text-center">
             <Button variant="primary" size="lg" className="fw-bold">
               Yes, I want this FREE Training 🚀
             </Button>

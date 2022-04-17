@@ -1,10 +1,14 @@
 import React from "react";
+import { Col } from "react-bootstrap";
 
-const Service = () => {
+const Service = ({ service }) => {
+  const { id, name, img, description, price } = service;
   return (
-    <div>
-      <h2>This is Service</h2>
-    </div>
+    <Col lg="4">
+      <img className="w-100" src={img} alt="" />
+      <h2 className="py-3">{name}</h2>
+      <p>{description}</p>
+    </Col>
   );
 };
 
