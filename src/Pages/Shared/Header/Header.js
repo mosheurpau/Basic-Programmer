@@ -69,10 +69,6 @@ const Header = () => {
                   </Nav.Link>
                 )}
               </Nav.Link>
-
-              <Nav.Link as={CustomLink} to="/register">
-                Register
-              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

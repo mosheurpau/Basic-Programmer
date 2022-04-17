@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 
 const Login = () => {
@@ -12,6 +13,12 @@ const Login = () => {
   if (error) {
     errorElement = <p className="text-danger">Error: {error?.message}</p>;
   }
+
+  const navigate = useNavigate();
+
+  const navigateRegister = () => {
+    navigate("/register");
+  };
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -50,6 +57,16 @@ const Login = () => {
             </Button>
           </Form>
           {errorElement}
+          <p>
+            New to Basic Programmer?{" "}
+            <Link
+              to="/register"
+              className="text-primary text-decoration-none"
+              onClick={navigateRegister}
+            >
+              Please Register
+            </Link>
+          </p>
         </Col>
       </Row>
     </Container>
