@@ -20,8 +20,8 @@ const Header = () => {
             <img
               alt=""
               src={logo}
-              width="=60"
-              height="60"
+              width="=80"
+              height="80"
               className="d-inline-block align-center nav-logo"
             />{" "}
             <b className="logo-title">
