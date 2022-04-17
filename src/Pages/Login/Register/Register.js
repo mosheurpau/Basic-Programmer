@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 
 const Register = () => {
@@ -18,6 +18,12 @@ const Register = () => {
   const navigateLogin = () => {
     navigate("/login");
   };
+
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+  if (user) {
+    navigate(from, { replace: true });
+  }
 
   const handleRegister = (event) => {
     event.preventDefault();

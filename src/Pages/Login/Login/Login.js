@@ -1,20 +1,26 @@
 import React from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 
 const Login = () => {
   let errorElement;
+  const navigate = useNavigate();
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
+  if (user) {
+    navigate(from, { replace: true });
+  }
+
   if (error) {
     errorElement = <p className="text-danger">Error: {error?.message}</p>;
   }
-
-  const navigate = useNavigate();
 
   const navigateRegister = () => {
     navigate("/register");
