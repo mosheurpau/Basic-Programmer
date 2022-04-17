@@ -4,8 +4,13 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 
 const Register = () => {
+  let errorElement;
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+
+  if (error) {
+    errorElement = <p className="text-danger">Error: {error?.message}</p>;
+  }
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -54,6 +59,7 @@ const Register = () => {
               Register
             </Button>
           </Form>
+          {errorElement}
         </Col>
       </Row>
     </Container>

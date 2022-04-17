@@ -4,8 +4,14 @@ import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 
 const Login = () => {
+  let errorElement;
+
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
+  if (error) {
+    errorElement = <p className="text-danger">Error: {error?.message}</p>;
+  }
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -19,7 +25,7 @@ const Login = () => {
       <Row className="justify-content-md-center">
         <Col xs="10" lg="6" className="mt-5 mx-auto">
           <h2 className="text-center my-3">Please Login</h2>
-          <Form onSubmit={handleLogin}>
+          <Form onSubmit={handleLogin} className="mb-3">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
@@ -43,6 +49,7 @@ const Login = () => {
               Login
             </Button>
           </Form>
+          {errorElement}
         </Col>
       </Row>
     </Container>
