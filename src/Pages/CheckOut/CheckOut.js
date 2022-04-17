@@ -2,10 +2,9 @@ import React from "react";
 
 const CheckOut = () => {
   return (
-    <div>
-      <h2>This is CheckOut</h2>
+    <div className="text-center mt-5">
+      <h2>You are successful.</h2>
     </div>
   );
 };
-
 export default CheckOut;
