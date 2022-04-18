@@ -1,9 +1,11 @@
 import React from "react";
+import { Container } from "react-bootstrap";
+import notFoud from "../../images/NotFound.jpg";
 const NotFound = () => {
   return (
-    <div>
-      <h2>Not Found</h2>
-    </div>
+    <Container>
+      <img className="w-100 h-100" src={notFoud} alt="" />
+    </Container>
   );
 };
 
