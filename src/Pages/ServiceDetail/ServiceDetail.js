@@ -6,7 +6,7 @@ const ServiceDetail = () => {
   const { serviceId } = useParams();
   console.log(serviceId);
   return (
-    <Container className="text-center mt-5">
+    <Container style={{ marginBottom: "350px" }} className="text-center mt-5">
       <h2>This is ServiceDetail {serviceId}</h2>
       <Link to="/checkout">
         <button className="btn btn-primary">Proceed Checkout</button>

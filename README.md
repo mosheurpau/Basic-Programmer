@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# Basic Programmer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live web site Link: [Bacis programmer](https://basic-programmer.web.app/).
+
+- This project has been made for a YouTube.
+- Here he can show his various services and from here students can also order different courses
+- react bootstrap framework using this project.
+- This projects data load from JSON file using hook for customer review and react firebase hook.
+- This projects also use 404 route and faveicon.
 
 ## Available Scripts
 
