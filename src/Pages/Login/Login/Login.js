@@ -9,6 +9,7 @@ import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
   const emailRef = useRef("");
@@ -101,7 +102,8 @@ const Login = () => {
           <p>
             Forget Password?{" "}
             <span
-              className="btn btn-link text-bg-primary text-decoration-none"
+              style={{ cursor: "pointer" }}
+              className="text-primary"
               onClick={resetPassword}
             >
               Reset Password
@@ -109,6 +111,7 @@ const Login = () => {
           </p>
           <ToastContainer />
         </Col>
+        <SocialLogin></SocialLogin>
       </Row>
     </Container>
   );
