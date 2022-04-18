@@ -8,6 +8,7 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Register = () => {
   const [agree, setAgree] = useState(false);
@@ -53,7 +54,11 @@ const Register = () => {
   return (
     <Container>
       <Row className="justify-content-md-center">
-        <Col xs="10" lg="6" className="mt-5 mx-auto">
+        <Col
+          xs="10"
+          lg="5"
+          className="mt-3 mx-auto bg-light rounded-top px-5 pt-4"
+        >
           <h2 className="text-center my-3">Please Register</h2>
           <Form onSubmit={handleRegister} className="mb-3">
             <Form.Group className="mb-3" controlId="formBasicText">
@@ -115,6 +120,7 @@ const Register = () => {
             </Link>
           </p>
         </Col>
+        <SocialLogin></SocialLogin>
       </Row>
     </Container>
   );
