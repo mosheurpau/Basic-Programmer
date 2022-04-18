@@ -28,7 +28,12 @@ const Banner = () => {
           </Col>
           <Col md={6} className="my-auto text-center">
             <Button variant="primary" size="lg" className="fw-bold">
-              Yes, I want this FREE Training 🚀
+              <a
+                className="text-decoration-none text-white"
+                href="https://www.youtube.com/c/BasicProgrammer"
+              >
+                Yes, I want this FREE Training 🚀
+              </a>
             </Button>
           </Col>
         </Row>
