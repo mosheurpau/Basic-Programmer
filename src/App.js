@@ -10,6 +10,7 @@ import Register from "./Pages/Login/Register/Register";
 import RequireAuth from "./Pages/Login/RequireAuth/RequireAuth";
 import NotFound from "./Pages/NotFound/NotFound";
 import ServiceDetail from "./Pages/ServiceDetail/ServiceDetail";
+import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
