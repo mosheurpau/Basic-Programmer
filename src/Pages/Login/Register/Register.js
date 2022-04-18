@@ -7,6 +7,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
+import Loading from "../../Shared/Loading/Loading";
 
 const Register = () => {
   let errorElement;
@@ -30,6 +31,10 @@ const Register = () => {
   if (user) {
     navigate(from, { replace: true });
     console.log(user);
+  }
+
+  if (loading || updating) {
+    return <Loading></Loading>;
   }
 
   const handleRegister = async (event) => {

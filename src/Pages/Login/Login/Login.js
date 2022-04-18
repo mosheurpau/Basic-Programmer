@@ -1,18 +1,30 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
 import auth from "../../../firebase.init";
+import Loading from "../../Shared/Loading/Loading";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
+  const emailRef = useRef("");
   let errorElement;
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
-  const location = useLocation();
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
+
   let from = location.state?.from?.pathname || "/";
 
   if (user) {
@@ -35,6 +47,16 @@ const Login = () => {
     console.log(email, password);
   };
 
+  const resetPassword = async () => {
+    const email = emailRef.current.value;
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast("Sent email");
+    } else {
+      toast("Please enter your email address");
+    }
+  };
+
   return (
     <Container>
       <Row className="justify-content-md-center">
@@ -45,6 +67,7 @@ const Login = () => {
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
+                ref={emailRef}
                 name="email"
                 placeholder="Enter email"
                 required
@@ -75,6 +98,16 @@ const Login = () => {
               Please Register
             </Link>
           </p>
+          <p>
+            Forget Password?{" "}
+            <span
+              className="btn btn-link text-bg-primary text-decoration-none"
+              onClick={resetPassword}
+            >
+              Reset Password
+            </span>
+          </p>
+          <ToastContainer />
         </Col>
       </Row>
     </Container>
