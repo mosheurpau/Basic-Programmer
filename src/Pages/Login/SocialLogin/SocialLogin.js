@@ -9,12 +9,35 @@ import auth from "../../../firebase.init";
 import google from "../../../images/socialIcon/google.png";
 import github from "../../../images/socialIcon/github.png";
 import facebook from "../../../images/socialIcon/facebook.png";
+import { useNavigate } from "react-router-dom";
+import Loading from "../../Shared/Loading/Loading";
 
 const SocialLogin = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-  const [signInWithGithub, user1, loading1, error1] = useSignInWithGithub(auth);
-  const [signInWithFacebook, user2, loading2, error2] =
+  const [signInWithGithub, userGithub, loadingGithub, errorGithub] =
+    useSignInWithGithub(auth);
+  const [signInWithFacebook, userFacebook, loadingFacebook, errorFacebook] =
     useSignInWithFacebook(auth);
+  const navigate = useNavigate();
+
+  let errorElement;
+
+  if (loading || loadingGithub || loadingFacebook) {
+    return <Loading></Loading>;
+  }
+
+  if (error || errorGithub || errorFacebook) {
+    errorElement = (
+      <p className="text-danger">
+        Error: {error?.message} {errorGithub?.message} {errorFacebook?.message}
+      </p>
+    );
+  }
+
+  if (user || userGithub || userFacebook) {
+    return navigate("/home");
+  }
+
   return (
     <Container>
       <Row className="justify-content-md-center">
@@ -24,6 +47,7 @@ const SocialLogin = () => {
             <p className="mt-2 px-2">or</p>
             <div style={{ height: "1px" }} className="bg-primary w-50"></div>
           </div>
+          {errorElement}
           <div>
             <Button
               variant="outline-primary"
