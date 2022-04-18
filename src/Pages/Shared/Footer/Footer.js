@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 const Footer = () => {
   return (
-    <footer className="mt-3">
+    <footer>
       <Container fluid className="bg-black pt-3">
         <Row className="justify-content-md-center">
           <Col xs="12" lg="5" className="mt-3 footer-title">

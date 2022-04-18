@@ -59,7 +59,7 @@ const Header = () => {
                   <Button
                     onClick={handleSignOut}
                     variant="link"
-                    className="text-danger text-decoration-none"
+                    className="text-decoration-none"
                   >
                     <b>Log Out</b>
                   </Button>
