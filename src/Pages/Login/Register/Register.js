@@ -1,5 +1,5 @@
 import { async } from "@firebase/util";
-import React from "react";
+import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import {
   useCreateUserWithEmailAndPassword,
@@ -10,13 +10,14 @@ import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 
 const Register = () => {
+  const [agree, setAgree] = useState(false);
   let errorElement;
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-  if (error) {
+  if (error || updateError) {
     errorElement = <p className="text-danger">Error: {error?.message}</p>;
   }
 
@@ -73,7 +74,6 @@ const Register = () => {
                 required
               />
             </Form.Group>
-
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
@@ -83,7 +83,23 @@ const Register = () => {
                 required
               />
             </Form.Group>
-            <Button variant="primary" type="submit" className="w-100">
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+              <Form.Check
+                type="checkbox"
+                onClick={() => setAgree(!agree)}
+                name="terms"
+                id="terms"
+                label="Accept Basic Programmer Terms and Conditions"
+                className={`${agree ? "" : "text-danger"}`}
+              />
+            </Form.Group>
+
+            <Button
+              variant="primary"
+              type="submit"
+              disabled={!agree}
+              className="w-100"
+            >
               Register
             </Button>
           </Form>
