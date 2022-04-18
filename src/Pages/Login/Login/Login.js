@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+
 import auth from "../../../firebase.init";
 
 const Login = () => {
@@ -33,6 +34,7 @@ const Login = () => {
     signInWithEmailAndPassword(email, password);
     console.log(email, password);
   };
+
   return (
     <Container>
       <Row className="justify-content-md-center">
