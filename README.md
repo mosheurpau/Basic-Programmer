@@ -5,7 +5,7 @@ Live web site Link: [Bacis programmer](https://basic-programmer.web.app/).
 - This project has been made for a YouTube.
 - Here he can show his various services and from here students can also order different courses
 - react bootstrap framework using this project.
-- This projects data load from JSON file using hook for customer review and react firebase hook.
+- This projects data load from JSON file for service and react firebase hook.
 - This projects also use 404 route and faveicon.
 
 ## Available Scripts

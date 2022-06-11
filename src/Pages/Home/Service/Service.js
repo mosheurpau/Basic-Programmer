@@ -6,7 +6,7 @@ const Service = ({ service }) => {
   const { id, name, img, description, price } = service;
   const navigate = useNavigate();
   const navigateToServiceDetail = (id) => {
-    navigate(`/services/${id}`);
+    navigate(`/service/${id}`);
   };
   return (
     <Col lg="4" className="text-center mb-5">

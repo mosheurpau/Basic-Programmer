@@ -12,6 +12,7 @@ import NotFound from "./Pages/NotFound/NotFound";
 import ServiceDetail from "./Pages/ServiceDetail/ServiceDetail";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
+import { ToastContainer, toast } from "react-toastify";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/services" element={<Services></Services>}></Route>
         <Route
-          path="/services/:serviceId"
+          path="/service/:serviceId"
           element={<ServiceDetail></ServiceDetail>}
         ></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
@@ -30,7 +31,7 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route
-          path="/checkOut"
+          path="/checkOut/:serviceId"
           element={
             <RequireAuth>
               <CheckOut></CheckOut>
@@ -40,6 +41,7 @@ function App() {
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }

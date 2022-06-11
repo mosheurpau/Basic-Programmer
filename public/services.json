@@ -1,20 +1,20 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "name": "Profit with JavaScript",
         "price": "50",
         "description": "How to make $5k/month or more as a modern JavaScript developer. Regardless of your previous experience or knowledge.",
         "img": "https://i.ibb.co/SKJwwT7/Javascript-1.png"
     },
     {
-        "id": 2,
+        "id": "2",
         "name": "Profit with Python",
         "price": "100",
         "description": "How to make $5k/month or more as a modern Python developer. Regardless of your previous experience or knowledge.",
         "img": "https://i.ibb.co/pKfSwhg/python-1.png"
     },
     {
-        "id": 3,
+        "id": "3",
         "name": "Frontend Mastery",
         "price": "150",
         "description": "Want to learn how to become a full-stack developer from Scratch and Land your first Developer Job?  This program is application only. We are highly selective about who we enroll into this program. Currently we are accepting new applications. Make sure you apply before we close enrollment.",

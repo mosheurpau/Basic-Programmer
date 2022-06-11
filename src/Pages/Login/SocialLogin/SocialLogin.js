@@ -9,7 +9,7 @@ import auth from "../../../firebase.init";
 import google from "../../../images/socialIcon/google.png";
 import github from "../../../images/socialIcon/github.png";
 import facebook from "../../../images/socialIcon/facebook.png";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Loading from "../../Shared/Loading/Loading";
 
 const SocialLogin = () => {
@@ -19,11 +19,18 @@ const SocialLogin = () => {
   const [signInWithFacebook, userFacebook, loadingFacebook, errorFacebook] =
     useSignInWithFacebook(auth);
   const navigate = useNavigate();
+  const location = useLocation();
 
   let errorElement;
 
   if (loading || loadingGithub || loadingFacebook) {
     return <Loading></Loading>;
+  }
+
+  let from = location.state?.from?.pathname || "/";
+
+  if (user) {
+    navigate(from, { replace: true });
   }
 
   if (error || errorGithub || errorFacebook) {
